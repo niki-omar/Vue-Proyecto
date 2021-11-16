@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{titulo}}</h1>
+      <ul>
+        <li v-for="n1 of array">{{n1}}</li>
+        <!-- n1 representa una variable cualquiera para ser llamada-->
+        <p>-----------</p>
+        <li v-for="n2 of frutas">
+          {{n2.cantidad}} - {{n2.nombre}}
+          <span v-if="n2.cantidad === 0"> -> Sin Stock</span>
+          <!-- sintaxis if="", condicional
+                                                                    dentro de las comillas dobles -->
+        </li>
+      </ul>
+      <operaciones></operaciones>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-</body>
+    <script src="01.js"></script>
+  </body>
 </html>
