@@ -50,7 +50,14 @@ const app = new Vue({
       { nombre: "Sandia", cantidad: 0 },
     ],
     nuevaFruta:'',
-    cantidadFruta:0
+    cantidadFruta:0,
+    total:0,
+    //ejemplos de v-blind:class, cambiar color y cosas asi
+    fondo:'bg-warning',
+    color:false,
+    //propiedades computadas...
+    mensaje:'Hola',
+    contador:0
   },
   methods:{
       agregarFruta (){
@@ -61,5 +68,27 @@ const app = new Vue({
         this.nuevaFruta='',
         this.cantidadFruta=0
       }
+  },
+  computed:{
+    sumarFrutas(){
+      this.total=0;
+      for(fruta of this.frutas){
+        this.total = this.total + fruta.cantidad;
+      }
+      return this.total;
+    },
+    //propiedades computadas ---
+    invertido(){
+      return this.mensaje.split('').reverse().join('');
+    },
+    colorComputado(){
+      return{
+        'bg-success': this.contador <=10,
+        'bg-warning': this.contador >10 && this.contador<20,
+        'bg-danger': this.contador >= 20
+      }
+    }   
   }
+    //Perteneciente a otra clase de ejemplos v-blind
+
 });
