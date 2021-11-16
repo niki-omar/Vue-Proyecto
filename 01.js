@@ -22,8 +22,8 @@ Vue.component("operaciones", {
       mensaje2: null,
       mensaje3: null,
       mensaje4: null,
-      mensaje5:null,
-      mensaje6:null
+    //   mensaje5:null,
+      res:null  //retorna el resultado de la operacion
     };
   },
   methods: {
@@ -33,13 +33,14 @@ Vue.component("operaciones", {
       this.mensaje3 = parseInt(this.numberone) * parseInt(this.numbertwo);
       this.mensaje4 = parseInt(this.numberone) / parseInt(this.numbertwo);
       this.mensaje5 = parseInt(this.numberone) + parseInt(this.numbertwo);
-      this.res= parseInt(this.mensaje5)- parseInt(this.numbertwo);
+      this.res= parseInt(this.mensaje5)- parseInt(this.numbertwo);  
     },
   },
 });
 const app = new Vue({
   el: "#app",
   data: {
+      //arrays
     titulo: "Vue",
     array: [1, 2, 3, "cuatro"],
     frutas: [
@@ -48,5 +49,17 @@ const app = new Vue({
       { nombre: "Limon", cantidad: 4 },
       { nombre: "Sandia", cantidad: 0 },
     ],
+    nuevaFruta:'',
+    cantidadFruta:0
   },
+  methods:{
+      agregarFruta (){
+          this.frutas.push({
+            nombre: this.nuevaFruta, 
+            cantidad: this.cantidadFruta,
+          })
+        this.nuevaFruta='',
+        this.cantidadFruta=0
+      }
+  }
 });

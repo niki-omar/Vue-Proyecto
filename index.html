@@ -8,6 +8,7 @@
   </head>
   <body>
     <div id="app">
+      <h1>V-FOR, V-IF, ARRAYS Y COMO LLAMAR UN TITULO</h1>
       <h1>{{titulo}}</h1>
       <ul>
         <li v-for="n1 of array">{{n1}}</li>
@@ -17,10 +18,36 @@
           {{n2.cantidad}} - {{n2.nombre}}
           <span v-if="n2.cantidad === 0"> -> Sin Stock</span>
           <!-- sintaxis if="", condicional
-                                                                    dentro de las comillas dobles -->
+         dentro de las comillas dobles -->
         </li>
       </ul>
+      <h1>EJEMPLOS SUMA, RESTA Y DIVISION</h1>
       <operaciones></operaciones>
+      <h1>METHODS, V-MODEL Y EVENTO CLICK con formulario desde html a vuejs</h1>
+      <input 
+      type="text" 
+      v-model="nuevaFruta" 
+      placeholder="Nombre de la fruta"
+      @keyup.enter="agregarFruta"
+      />
+
+      <input 
+      type="int" 
+      v-model.number="cantidadFruta" 
+      placeholder="Cantidad"
+      @keyup.enter="agregarFruta"  
+      />  <!-- EL metodo @keyup.enter permite enviar parametros solo precionando enter...-->
+
+      <button v-on:click="agregarFruta">Agregar</button>
+      <!-- asi mismo, para el metodo click
+      hay dos formas 1) v-on:click="" y @click=""-->
+      <br />
+        <li v-for="n2 of frutas"> 
+        <button @click="n2.cantidad--">-</button>  
+        {{n2.nombre}} - <input type="number" v-model.number="n2.cantidad">
+        <button @click="n2.cantidad++">+</button>
+        <span v-if="n2.cantidad === 0"> -> Sin Stock</span>                            
+      </li> 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="01.js"></script>
