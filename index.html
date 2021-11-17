@@ -11,6 +11,11 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+    <script src="https://unpkg.com/vuex@3.6.2/dist/vuex.js"></script>
+    <script src="componentes/padre.js"></script>    
+    <script src="componentes/hijo.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -37,7 +42,6 @@
         placeholder="Nombre de la fruta"
         @keyup.enter="agregarFruta"
       />
-
       <input
         type="int"
         v-model.number="cantidadFruta"
@@ -72,36 +76,43 @@
           deleniti corrupti.
         </p>
       </div>
-      <input type="text" class="form-control my-3" v-model="fondo">
-      <div class="text-white p-3" :class="{'bg-info':color,'bg-success':!color }">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio debitis, et maiores rem in tempora quaerat suscipit vero rerum nemo veritatis dolorum quas totam cumque? Laudantium eligendi dicta nulla repellat?</p>
-      
+      <input type="text" class="form-control my-3" v-model="fondo" />
+      <div
+        class="text-white p-3"
+        :class="{'bg-info':color,'bg-success':!color }"
+      >
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio
+          debitis, et maiores rem in tempora quaerat suscipit vero rerum nemo
+          veritatis dolorum quas totam cumque? Laudantium eligendi dicta nulla
+          repellat?
+        </p>
       </div>
       <button class="btn btn-primary" @click="color =!color">Cambiar</button>
 
       <h1>PROPIEDADES COMPUTADAS</h1>
       <h2>{{mensaje}}</h2>
       <h2>invertido: {{invertido}}</h2>
-      <input type="text" class="form-control" v-model="mensaje">
-
+      <input type="text" class="form-control" v-model="mensaje" />
       <button class="btn btn-primary" @click="contador++">+</button>
       <button class="btn btn-danger" @click="contador--">-</button>
       <h3>{{contador}}</h3>
-      <div class="progress">
-        <div 
-        class="progress-bar" 
-        role="progressbar" 
-        :style="{'width':contador+'%'}" 
-        aria-valuenow="25" 
-        aria-valuemin="0" 
-        aria-valuemax="100"
-        :class="colorComputado">
-        {{contador}}%</div>
-
-      </div>
-
+          <div class="progress">
+              <div
+              class="progress-bar"
+              role="progressbar"
+              :style="{'width':contador+'%'}"
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              :class="colorComputado"
+              >
+              {{contador}}%
+              </div>
+          </div>
+      <h1>Comunicacion entre componentes</h1>
+      <padre></padre>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="01.js"></script>
   </body>
 </html>

@@ -2,7 +2,7 @@
 Vue.component("operaciones", {
   props: ["value0", "value1"],    // --> esto indica el valor como tal que va a recibir
                                 // en los INPUT
-  template: `
+  template: `  
     <div>
         <input type="number" :value="value0" @input="numberone = $event.target.value" >
         <input type="number" :value="value1" @input="numbertwo = $event.target.value" >
