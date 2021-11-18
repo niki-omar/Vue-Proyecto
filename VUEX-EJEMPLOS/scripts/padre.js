@@ -24,7 +24,7 @@ const store = new Vuex.Store({
     },
     actions:{
         obtenerCursos: async function({commit}){
-            const data = await fetch('cursos.json');
+            const data = await fetch('/cursos.json');
             const cursos = await data.json();
             commit('llenarCursos',cursos)
         }
