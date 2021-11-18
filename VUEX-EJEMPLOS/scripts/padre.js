@@ -3,17 +3,30 @@ Vue.component('padre',{
     `
     <div> 
     <h1>VUEX</h1>
-        <h2>Numero {{ $store.state.numero }}</h2>
         <hijo></hijo> 
     </div> 
-    `});
+    `,});
 const store = new Vuex.Store({
     state:{
-        numero: 10
+        numero: 10,
+        cursos: []
     },
     mutations:{
-        aumentar(){
-            this.state.numero++
+        aumentar(state){
+            state.numero ++
+        },
+        disminuir(state,n){
+            state.numero -=n
+        },
+        llenarCursos(state,cursosAccion){
+            state.cursos= cursosAccion
+        }
+    },
+    actions:{
+        obtenerCursos: async function({commit}){
+            const data = await fetch('cursos.json');
+            const cursos = await data.json();
+            commit('llenarCursos',cursos)
         }
     }
 });
